@@ -9,8 +9,8 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        Server server = new Server(COUNT_POOL);
-        server.startServer(PORT);
+        final var server = new Server(COUNT_POOL);
+        server.listen(PORT);
 
     }
 }

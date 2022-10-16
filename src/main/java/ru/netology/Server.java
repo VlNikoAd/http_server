@@ -19,12 +19,12 @@ public class Server {
             "/resources.html", "/styles.css", "/app.js", "/links.html",
             "/forms.html", "/classic.html", "/events.html", "/events.js");
     final ExecutorService threadPool;
-
+    
     Server(int poolSize) {
         this.threadPool = Executors.newFixedThreadPool(poolSize);
     }
 
-    public void startServer(int port) {
+    public void listen(int port) {
         try (final var serverSocket = new ServerSocket(port)) {
             while (!serverSocket.isClosed()) {
                 try {
@@ -47,6 +47,8 @@ public class Server {
                 final var out = new BufferedOutputStream(socket.getOutputStream());
 
         ) {
+
+            System.out.println(Thread.currentThread().getName());
             // read only request line for simplicity
             // must be in form GET /path HTTP/1.1
             final var requestLine = in.readLine();
