@@ -9,29 +9,29 @@ public class Main {
 
     final static int COUNT_POOL = 64;
     final static int PORT = 9999;
-    final static String getMsg = "GET";
-    final static String postMsg = "POST";
+    final static String GET = "GET";
+    final static String POST = "POST";
 
     public static void main(String[] args) {
         final var server = new Server(COUNT_POOL);
 
-        server.addHandler(getMsg, "/app.js", Main::processFile);
-        server.addHandler(getMsg, "/events.html", Main::processFile);
-        server.addHandler(getMsg, "/events.js", Main::processFile);
-        server.addHandler(getMsg, "/forms.html", Main::processFile);
-        server.addHandler(getMsg, "/index.html", Main::processFile);
-        server.addHandler(getMsg, "/links.html", Main::processFile);
-        server.addHandler(getMsg, "/resources.html", Main::processFile);
-        server.addHandler(getMsg, "/spring.png", Main::processFile);
-        server.addHandler(getMsg, "/spring.svg", Main::processFile);
-        server.addHandler(getMsg, "/links.html", Main::processFile);
-        server.addHandler(getMsg, "/styles.css", Main::processFile);
+        server.addHandler(GET, "/app.js", Main::processFile);
+        server.addHandler(GET, "/events.html", Main::processFile);
+        server.addHandler(GET, "/events.js", Main::processFile);
+        server.addHandler(GET, "/forms.html", Main::processFile);
+        server.addHandler(GET, "/index.html", Main::processFile);
+        server.addHandler(GET, "/links.html", Main::processFile);
+        server.addHandler(GET, "/resources.html", Main::processFile);
+        server.addHandler(GET, "/spring.png", Main::processFile);
+        server.addHandler(GET, "/spring.svg", Main::processFile);
+        server.addHandler(GET, "/links.html", Main::processFile);
+        server.addHandler(GET, "/styles.css", Main::processFile);
 
         server.addHandler("GET", "/messages", (request, out) ->
-                processMsg(request, out, getMsg));
+                processMsg(request, out, GET));
 
         server.addHandler("POST", "/messages", (request, out) ->
-                processMsg(request, out, postMsg));
+                processMsg(request, out, POST));
 
         server.listen(PORT);
     }
