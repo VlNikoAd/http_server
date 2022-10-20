@@ -18,4 +18,12 @@ public class Request {
         return path;
     }
 
+    public void getQueryParams() {
+
+    }
+
+    public void getQueryParam(String name) {
+
+    }
+
 }
