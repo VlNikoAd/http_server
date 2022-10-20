@@ -82,10 +82,12 @@ public class Server {
     }
     public void getQueryParam(String name) {
 
+        
     }
 
     public void getQueryParams() {
-        
+
+
     }
 
     public void addHandler(String method, String path, Handler handler) {
