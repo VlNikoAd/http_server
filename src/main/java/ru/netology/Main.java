@@ -34,6 +34,7 @@ public class Main {
                 processMsg(request, out, POST));
 
         server.listen(PORT);
+
     }
 
     private static void processFile(Request request, BufferedOutputStream out) {

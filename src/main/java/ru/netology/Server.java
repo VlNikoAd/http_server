@@ -77,15 +77,17 @@ public class Server {
 
             handler.handle(request, out);
 
+            if (!request.getQueryParams().isEmpty())
+                System.out.println("Вывод query: \n" + request.getQueryParams());
+            if (!request.getQueryParam("test").isEmpty())
+                System.out.println("Вывод query по тегу 'test' :" + request.getQueryParam("test"));
+
         } catch (IOException ex) {
             ex.printStackTrace();
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
     }
-
-
-
 
     public void addHandler(String method, String path, Handler handler) {
         handlers.putIfAbsent(method, new ConcurrentHashMap<>());
